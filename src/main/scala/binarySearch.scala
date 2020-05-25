@@ -4,7 +4,7 @@ import utils._
 object binarySearch {
   def main(args: Array[String]): Unit = {
 
-    def binarySearch_iterative (arr: Array[Int], target: Int): Int = {
+    def binarySearch_iterative(arr: Array[Int], target: Int): Int = {
       var (start, end) = (0, arr.length - 1)
       var mid = start + (end - start) / 2
 
@@ -20,15 +20,15 @@ object binarySearch {
     }
 
     def binarySearch_Recursive(list: Array[Int], target: Int)
-                             (start: Int=0, end: Int=list.length-1): Int = {
-      if (start>end) return -1
-      val mid = start + (end-start+1)/2
-      if (list(mid)==target)
-        return mid
-      else if (list(mid)>target)
-        return binarySearch_Recursive(list, target)(start, mid-1)
+                              (start: Int = 0, end: Int = list.length - 1): Int = {
+      if (start > end) -1
+      val mid = start + (end - start + 1) / 2
+      if (list(mid) == target)
+        mid
+      else if (list(mid) > target)
+         binarySearch_Recursive(list, target)(start, mid - 1)
       else
-        return binarySearch_Recursive(list, target)(mid+1, end)
+         binarySearch_Recursive(list, target)(mid + 1, end)
     }
 
     def binarySearch_tailRec(arr: Array[Int], target: Int): Int = {
@@ -59,7 +59,7 @@ object binarySearch {
     println(s" Iterative binaryseach total run time =  $iterativeRuntime seconds OR ${iterativeRuntime * 1000} milliseonds")
 
     val recursive_runtime = calculateRunTime {
-      println(binarySearch_Recursive(arr, target) match {
+      println(binarySearch_Recursive(arr, target)() match {
         case -1 => s"$target doesnt match"
         case index => s"$target exists at $index"
       })
@@ -78,8 +78,6 @@ object binarySearch {
 
 
     println(s" TailRec binaryseach total run time =  $tailrec_runtime seconds OR ${tailrec_runtime * 1000} milliseonds")
-
-
 
 
   }
