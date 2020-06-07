@@ -1,6 +1,8 @@
 package Arrays
+/*
+* @see https://leetcode.com/explore/interview/card/top-interview-questions-easy/92/array/674/
+* */
 
-import scala.collection.mutable
 import scala.collection.mutable._
 
 object IntersectionofTwoArraysII {
